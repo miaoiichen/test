@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Scheduling</title>
+    <style>
+        .wrap{
+            width: 500px;
+            height: 500px;
+            border:grey solid 1px;
+            position: relative;
+        }
+        .circle{
+            width: 50px;
+            height: 50px;
+            background-color:pink;
+            position: absolute;
+            bottom: 0;
+            transition: 0.2s;
+        }
+        .active{
+            bottom: 50%;
+        }
+    </style>
+</head>
+<body>
+    <h3>Scheduling 排程</h3>
+    <p>ex:請三秒後再開始執行程式</p>
+    <div id="timer">3</div>
+    <div class="wrap">
+    <div class="circle active"></div>
+    </div>  
+    <script>
+        // 01等待一段時間之後執行一個函式
+        // window.setTimeout(函式,毫秒);
+        /*
+        function countdown(){
+         let timer = document.querySelector("#timer");
+         timer.innerHTML = timer.innerHTML -1 ;
+         if(timer.innerHTML > 0){
+             //再做一次 才能遞減
+            window.setTimeout(countdown,1000);
+         }else{ //數到 0 做事
+             window.location="https://google.com"
+         }
+         
+        
+        }
+
+        //非同步的程式(Asynchronous)/異步
+        window.setTimeout(countdown,1000);
+        */
+
+
+        //每隔一段時間執行函式
+        //window.setInterval(函式,毫秒)
+        function countdown(){
+         let timer = document.querySelector("#timer");
+         timer.innerHTML = timer.innerHTML -1 ;
+         if(timer.innerHTML == 0){
+          //數到 0 做事
+            // window.location="https://google.com"
+            timer.innerHTML ="Happy BD";
+            //清除排程
+            //window.cleatInterval(排程編號)
+            window.clearInterval(s1);
+         }
+        }
+
+        //自動重複
+        //let 排程編號 = window.setInterval(countdown,1000);
+        let s1 = window.setInterval(countdown,1000);
+        console.log(s1);
+
+
+        function rect(){
+            let c = document.querySelector(".circle");
+            
+        }
+
+
+
+
+        let ani = window.setInterval(rect , 5000);
+
+
+
+
+
+
+        
+    </script>
+    
+</body>
+</html>
